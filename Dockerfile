@@ -1,4 +1,4 @@
-FROM laincloud/centos-lain:20160503
+FROM laincloud/centos-lain:20170217
 
 COPY libunwind-1.1-3.sdl7.x86_64.rpm /root/libunwind-1.1-3.sdl7.x86_64.rpm
 COPY tengine-2.1.1-3.modsec_2.9.0.el7.centos.x86_64.rpm /root/tengine-2.1.1-3.modsec_2.9.0.el7.centos.x86_64.rpm
@@ -7,6 +7,7 @@ COPY tengine-filesystem-2.1.1-3.modsec_2.9.0.el7.centos.noarch.rpm /root/tengine
 RUN yum install -y /root/libunwind-1.1-3.sdl7.x86_64.rpm \
     /root/tengine-filesystem-2.1.1-3.modsec_2.9.0.el7.centos.noarch.rpm \
     /root/tengine-2.1.1-3.modsec_2.9.0.el7.centos.x86_64.rpm \
+    logrotate \
     && yum -y clean all \
     && rm -rf /root/*.rpm \
     && pip install supervisor \
